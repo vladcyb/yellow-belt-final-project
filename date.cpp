@@ -1,4 +1,5 @@
 #include <iomanip>
+#include <tuple>
 #include "date.h"
 
 ostream& operator << (ostream& stream, const Date& date){
@@ -17,15 +18,11 @@ Date ParseDate(istream& is){
 
 }
 
+tuple<int, int, int>
+GetDateRank(const Date& date){
+    return tie(date.year, date.month, date.day);
+}
+
 bool operator < (const Date& lhs, const Date& rhs) {
-    if (lhs.year < rhs.year){
-        return true;
-    }
-    if (lhs.month < rhs.month){
-        return true;
-    }
-    if (lhs.day < rhs.day){
-        return true;
-    }
-    return false;
+    return GetDateRank(lhs) < GetDateRank(rhs);
 }
