@@ -4,6 +4,10 @@
 #include <map>
 using namespace std;
 
+enum class LogicalOperation{
+  Or, And
+};
+
 template <class It> shared_ptr<Node> ParseComparison(It& current, It end) {
   if (current == end) {
     throw logic_error("Expected column name: date or event");
