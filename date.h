@@ -10,3 +10,4 @@ struct Date{
 
 ostream& operator << (ostream& stream, const Date& date);
 Date ParseDate(istream& is);
+bool operator < (const Date& lhs, const Date& rhs);

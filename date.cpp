@@ -16,3 +16,16 @@ Date ParseDate(istream& is){
     return {year, month, day};
 
 }
+
+bool operator < (const Date& lhs, const Date& rhs) {
+    if (lhs.year < rhs.year){
+        return true;
+    }
+    if (lhs.month < rhs.month){
+        return true;
+    }
+    if (lhs.day < rhs.day){
+        return true;
+    }
+    return false;
+}
